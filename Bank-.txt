@@ -1,0 +1,125 @@
+
+import java.util.Scanner;
+public class Bank {
+
+	public static void main(String[] args) {
+	
+		Scanner sc = new Scanner(System.in);
+		System.out.println("How many Accounts do you want to Create : ");
+		int Acc = sc.nextInt();
+		Customer c1[] = create(Acc);
+		int ch1;
+		String ch2;
+		System.out.println("################## Main Menu ################");
+		do
+		{
+			
+			System.out.println("\n\t 1 : Add Account \n\t 2 : Display Account Details \n\t 3 : Delete Account\n\t 4 : Perform Transaction");
+			System.out.println("\nEnter Your Choice ..");
+			ch1 = sc.nextInt();
+			switch(ch1)
+			{
+			case 1 : add();
+				break;
+			
+			case 2: display(c1);
+				break;
+				
+			case 3 : remove();
+				break;
+				
+			default : System.out.println("\nInvalid Choice !!");
+			}
+			System.out.println("\nDo want to go to main menu (y/n)");
+			ch2 = sc.next();
+		}while(ch2.equals("y")||ch2.equals("Y"));
+	
+	}
+	
+	public static Customer[] create(int acc)
+	{
+		int ch;
+		int flag = 0;
+		Scanner sc = new Scanner(System.in);
+		Customer c1[] = new Customer[acc];
+		for(int i=0;i<acc;i++)
+		{
+			Customer c2 = new Customer();
+			System.out.println("\n********** Account "+(i+1)+" details ********** ");
+			System.out.println("\nEnter Cusomer Id : ");
+			c2.setCustId(sc.nextInt());
+			System.out.println("Enter Customer Name : ");
+			c2.setCustName(sc.next());
+			System.out.println("Select Account Type : ");
+			do
+			{
+					System.out.println("\n\t 1 : Saving \n\t 2 : Current \n\t 3 : Loan");
+					ch = sc.nextInt();
+					if(ch == 1)
+						{
+							Account a1 = new Saving();
+							a1.setAcctype("Saving");
+							System.out.println("Enter Account no : ");
+							a1.setAccNo(sc.nextInt());
+							System.out.println("Enter Account Balance  : ");
+							a1.setAccBal(sc.nextInt());
+							c2.setAcc(a1);
+							c1[i]=c2;
+							flag = 0;
+						}
+					else if(ch == 2)
+						{
+							Account a1 = new Current();
+							a1.setAcctype("Current");
+							System.out.println("Enter Account no : ");
+							a1.setAccNo(sc.nextInt());
+							System.out.println("Enter Account Balance  : ");
+							a1.setAccBal(sc.nextInt());
+							c2.setAcc(a1);
+							c1[i]=c2;
+							flag = 0;
+						}
+					else if(ch == 3)
+						{
+							Account a1 = new Loan();
+							a1.setAcctype("Loan");
+							System.out.println("Enter Account no : ");
+							a1.setAccNo(sc.nextInt());
+							System.out.println("Enter Account Balance  : ");
+							a1.setAccBal(sc.nextInt());
+							c2.setAcc(a1);
+							c1[i]=c2;
+							flag = 0;
+						}
+					else
+						{
+							flag = 1;
+							System.out.println("Invalid Choice !! \n\nPlease Choose Correct Option ..");
+						}
+			}while(flag == 1);
+					
+		}
+		return c1;
+	}
+	
+	public static void add()
+	{
+		System.out.println("Work in Progress ...");
+	}
+	public static void display(Customer c1[])
+	{
+		System.out.println("******************** Account DEtails *********************");
+		for(int i=0;i<c1.length;i++)
+		{
+			System.out.println("\n\tCustomer Id : "+c1[i].getCustId());
+			System.out.println("\tCustomer Name : "+c1[i].getCustName());
+			System.out.println(""+c1[i].getAcc());
+			System.out.println("\n===============================================================");
+		}
+		
+	}
+	public static void remove()
+	{
+		System.out.println("Work in Progress ...");
+	}
+}

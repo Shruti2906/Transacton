@@ -1,0 +1,24 @@
+
+public abstract class Account {
+
+	protected int AccNo;
+	protected int AccBal;
+	protected String AccType;
+	
+	public abstract int getAccNo(); 
+	public abstract void setAccNo(int accNo); 
+		
+	public abstract int getAccBal();
+	public abstract void setAccBal(int accBal);
+	
+	public String getAcctype() {
+		return AccType;
+	}
+	public void setAcctype(String acctype) {
+		AccType = acctype;
+	} 
+	public String toString() 
+    { 
+        return "\tAccount no : "+AccNo + "\n\tAccount Balance : " + AccBal + "\n\tsAccount Type : " + AccType ; 
+    } 
+}

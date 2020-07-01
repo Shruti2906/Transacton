@@ -1,0 +1,26 @@
+
+public class Customer {
+	
+	private int CustId;
+	private String CustName;
+	private Account Acc;
+	public int getCustId() {
+		return CustId;
+	}
+	public void setCustId(int custId) {
+		CustId = custId;
+	}
+	public String getCustName() {
+		return CustName;
+	}
+	public void setCustName(String custName) {
+		CustName = custName;
+	}
+	public Account getAcc() {
+		return Acc;
+	}
+	public void setAcc(Account acc) {
+		Acc = acc;
+	}
+
+}
